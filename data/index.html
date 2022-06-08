@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html charset="UTF-8">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+
+    <script type="application/javascript" src="jquery.min.js"></script>
+    <script type="application/javascript" src="bootstrap.min.js"></script>
+    <script type="application/javascript" src="bootstrap-table.min.js"></script>
+    <script type="application/javascript" src="toastr.min.js"></script>
+    <script type="application/javascript" src="bootbox.all.min.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="bootstrap-table.min.css">
+    <link type="text/css" rel="stylesheet" href="toastr.min.css">
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet" title="main">
+    <title>Vehicle Tracking System</title>
+  </head>
+  <body>
+    <br/>
+    <br/>
+    <div class="container">
+      <div class="row">
+         <p class="lead col-lg-6 col-md-6 col-sm-12">Vehicle Tracking System</p>
+         <p class="col-lg-3 col-md-3 col-sm-3"><a href="#" class="btn upgrade_version_btn btn-default">Download Project Documentation</a></p>
+      </div>
+      <p class="bs-component">
+        <ul class="nav nav-tabs" id="tab">
+          <li class="active"><a href="#tab_mesures" data-toggle="tab">Dashboard</a></li>
+          <li><a href="#tab_whitelist" data-toggle="tab">Whitelist</a></li>
+          <li><a href="#tab_wifi" data-toggle="tab">WiFi Settings</a></li>
+        </ul>
+      </p>
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="tab_mesures">    
+          <center>  
+            <h3>Dashboard</h3>
+            <p class="lead"><i><b>Vehicle Tracking System - V1</b></i></p>
+            <div class="row gutter-10">   
+              <button class="btn btn-warning" onclick="rebootDevice()">Restart the device</button>
+            </div>
+            <div class="station_status"></div>
+          </center>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="networkOperator">
+               <td>Network Operator</td>
+               <td>--</td>
+              </tr>
+              <tr id="signalQuality">
+               <td>Signal Quality</td>
+               <td>--</td>
+              </tr>
+              <tr id="isRegistered">
+               <td>Is Sim Registered to this network?</td>
+               <td>--</td>
+              </tr>
+              <tr id="numberOfSats">
+                <td>Number of Satellites being tracked (Minimum: 4)</td>
+                <td>--</td>
+              </tr>
+              <tr id="gpsLat">
+                 <td>GPS latitude</td>
+                 <td>--</td>
+              </tr>
+              <tr id="gpsLon">
+                 <td>GPS longitude</td>
+                 <td>--</td>
+              </tr>
+              <tr id="course">
+                 <td>Vehicle Course</td>
+                 <td>--</td>
+              </tr>
+              <tr id="distanceFromHarare">
+                 <td>Vehicle distance from Harare CBD</td>
+                 <td>--</td>
+              </tr>
+              <tr id="altitude">
+                 <td>Vehicle Altitude</td>
+                 <td>--</td>
+              </tr>
+              <tr id="speed">
+                 <td>Vehicle Speed</td>
+                 <td>--</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane fade in" id="tab_whitelist">
+          <center>
+          <h3>Whitelist</h3>
+          <br>
+            <form action="/">
+              <div style="width: 80%" class="form-group">
+                <label for="WtL_phone_number">
+                  <b>Enter Phone Number (must include 263)</b>
+                </label>
+                <input placeholder="eg 263XXXXXXXXX" type="number" class="form-control" id="WtL_phone_number">
+              </div>
+            </form>
+            <button id="change_WtL" onclick="updateWhitelistConfig();" class="btn btn-primary">Finished</button>
+            <br>
+            <br>
+            <br>
+          </center>
+        </div>
+        <div class="tab-pane fade in" id="tab_wifi">
+          <center>
+            <h3>WiFi Settings</h3>
+              <br>
+              <form action="/">
+                <div style="width: 80%" class="form-group">
+                  <label for="ap_ssid">
+                    <b>The name of the WiFi network of this Vehicle Tracking System</b>
+                  </label>
+                  <input placeholder="e.g Lorry vehicle tracking system" type="text" class="form-control" id="ap_ssid">
+                </div>
+                <div style="width: 80%" class="form-group">
+                  <label for="ap_password">
+                    <b>Enter the WiFi network password you want</b>
+                  </label>
+                  <input placeholder="at least 8 characters" type="password" class="form-control" id="ap_password">
+                </div>
+              </form>
+              <button id="change_ap_config" onclick="updateAccessPointConfig();" class="btn btn-primary">Finished</button>
+              <br>
+              <br>
+              <br>
+          </center>
+        </div>
+      </div>
+    </div>
+    <script type="application/javascript" src="js/app.js"></script>   
+  </body>
+</html>
