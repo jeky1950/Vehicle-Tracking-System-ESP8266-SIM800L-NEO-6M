@@ -8,3 +8,6 @@ To setup the Arduino IDE to be able to support the ESP8266 follow <a href="https
 
 <h1><strong>Project Structure</strong></h1>
 This project makes use of the ESP8266 microcontroller, a GPS Module (NEO-6m), a GSM Module (SIM800L), a push button, a red LED and a blue LED.
+
+<h1><strong>Schematic Design</strong></h1>
+![Vehicle Tracking System_bb](https://user-images.githubusercontent.com/25394902/173062644-b66e9cbc-15ea-4836-9592-4c98d1ded26c.png)
